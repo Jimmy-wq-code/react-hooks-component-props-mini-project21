@@ -1,18 +1,20 @@
-import Article from "./Article.js"
+import blogData from "../data/blog"
+import Article from "./Article"
+
 function ArticleList({posts}){
+   const blogPost= posts.map((props)=>{
+        return(
+            <Article key={props.id}  title={props.title} date={props.date} preview={props.preview}/>
+        )
+    })
+
     return(
-        <div>
-            <main>
-                {posts.map((post) => (
-                    <Article
-                    key={post.id}
-                    title={post.title}
-                    date={post.date}
-                    preview={post.preview}
-                    />
-                ))}
-            </main>
-        </div>
+
+    <main>
+        {blogPost}
+
+    </main>
     )
+
 }
 export default ArticleList
